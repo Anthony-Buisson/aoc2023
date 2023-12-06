@@ -22,12 +22,12 @@ const part1 = (rawInput: string) => {
 
 const part2 = (rawInput: string) => {
     const input = parseInput(rawInput);
-    let numberOfWaysToWin = 0;
+    let numberOfWaysToWin = 1;
     const time = Number(input.slice(0, input.length / 2).reduce((acc, val) => acc + String(val), ''))
     const distance = Number(input.slice(input.length / 2).reduce((acc, val) => acc + String(val), ''))
-    for (let i = 0; i < time; i++) {
+    for (let i = 0; i < time / 2; i++) {
         if (i * (time - i) > distance) {
-            numberOfWaysToWin += 1
+            numberOfWaysToWin += 2
         }
     }
     return numberOfWaysToWin;
